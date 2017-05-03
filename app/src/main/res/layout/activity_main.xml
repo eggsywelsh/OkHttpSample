@@ -47,4 +47,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Post with log" />
+
+    <Button
+        android:id="@+id/btn_log_headers"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="log response headers" />
+
+
 </LinearLayout>

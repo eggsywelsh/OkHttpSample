@@ -36,7 +36,8 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = MainActivity.class.getSimpleName();
 
-    String baseUrl = "http://192.168.1.221:8080/sframework/demo";
+//    String baseUrl = "http://192.168.1.221:8080/sframework/demo";
+    String baseUrl = "http://192.168.0.116:8080/sframework/demo";
 
     ExecutorService executorService = Executors.newCachedThreadPool();
 
@@ -286,6 +287,30 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call call, IOException e) {
                 Log.d(TAG, "request failed");
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                String resonseData = response.body().string();
+
+                Log.d(TAG, resonseData);
+            }
+        });
+    }
+
+    @OnClick(R.id.btn_log_headers)
+    public void clickLogHeaders(View v){
+        OkHttpClient logHttpClient = new OkHttpClient.Builder().addInterceptor(new LogInterceptor())
+                .build();
+
+        Request request = new Request.Builder().url(appendUrlParam("getRedirect")).build();
+
+        Call call = logHttpClient.newCall(request);
+
+        call.enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                Log.d(TAG, "request onFailed");
             }
 
             @Override
