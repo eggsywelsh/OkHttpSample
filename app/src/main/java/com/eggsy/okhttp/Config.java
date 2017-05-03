@@ -6,7 +6,7 @@ package com.eggsy.okhttp;
 
 public class Config {
 
-    public static final boolean IS_PRINT_HTTP_RESPONSE_HEADER = true;
+    public static final boolean IS_PRINT_HTTP_RESPONSE_HEADER = false;
     public static final String PRINT_HTTP_TAG = "HTTP";
 
 

@@ -6,7 +6,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 
+import com.eggsy.okhttp.interceptor.GzipResponseInterceptor;
 import com.eggsy.okhttp.interceptor.LogInterceptor;
+import com.eggsy.okhttp.interceptor.RequestHeaderInterceptor;
 import com.eggsy.okhttp.interceptor.ResponseHeaderInterceptor;
 
 import java.io.ByteArrayOutputStream;
@@ -38,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = MainActivity.class.getSimpleName();
 
 //    String baseUrl = "http://192.168.1.221:8080/sframework/demo";
-    String baseUrl = "http://192.168.0.116:8080/sframework/demo";
+    String baseUrl = "http://192.168.3.5:8080/sframework/demo";
 
     ExecutorService executorService = Executors.newCachedThreadPool();
 
@@ -320,6 +322,32 @@ public class MainActivity extends AppCompatActivity {
                 String resonseData = response.body().string();
 
                 Log.d(TAG, resonseData);
+            }
+        });
+    }
+
+    @OnClick(R.id.btn_gzip)
+    public void clickGzip(View v){
+        OkHttpClient logHttpClient = new OkHttpClient.Builder().addInterceptor(new LogInterceptor())
+                .addNetworkInterceptor(new RequestHeaderInterceptor())
+                .addNetworkInterceptor(new ResponseHeaderInterceptor())
+                .addNetworkInterceptor(new GzipResponseInterceptor())
+                .build();
+
+        Request request = new Request.Builder().url(appendUrlParam("getGzipContent"))
+                .addHeader("Accept-Encoding","gzip")
+                .build();
+
+        logHttpClient.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                Log.d(TAG, "request onFailed");
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+
+                Log.d(TAG,response.body().string());
             }
         });
     }

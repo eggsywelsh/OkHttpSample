@@ -15,7 +15,7 @@ import okhttp3.Response;
  * Created by eggsy on 17-5-3.
  */
 
-public class ResponseHeaderInterceptor implements Interceptor {
+public class RequestHeaderInterceptor implements Interceptor {
 
     private static final String TAG = Config.PRINT_HTTP_TAG;
 
@@ -24,12 +24,12 @@ public class ResponseHeaderInterceptor implements Interceptor {
 
         Request request = chain.request();
 
-        Response response = chain.proceed(request);
+        Headers headers = request.headers();
 
-        Headers headers = response.headers();
-
-        Log.d(TAG, "[HTTP][RESPONSE]"+String.format("Received response header %n%s",
+        Log.d(TAG, "[HTTP][REQUEST]"+String.format("Request header %n%s",
                 headers));
+
+        Response response = chain.proceed(request);
 
         return response;
     }
