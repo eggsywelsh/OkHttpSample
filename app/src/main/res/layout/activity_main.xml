@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.eggsy.okhttp.MainActivity">
+
+    <Button
+        android:id="@+id/btn_get_url"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Get Url" />
+
+    <Button
+        android:id="@+id/btn_post_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Post Content" />
+
+    <Button
+        android:id="@+id/btn_post_form"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Post form" />
+
+    <Button
+        android:id="@+id/btn_post_with_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Post with header" />
+
+    <Button
+        android:id="@+id/btn_post_file"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Post file" />
+
+    <Button
+        android:id="@+id/btn_post_cookie"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Post cookie" />
+
+    <Button
+        android:id="@+id/btn_post_log"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Post with log" />
+</LinearLayout>
