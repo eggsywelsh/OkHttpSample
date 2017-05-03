@@ -20,7 +20,7 @@ import okhttp3.Response;
 
 public class LogInterceptor implements Interceptor {
 
-    private static final String TAG = "HTTP";
+    private static final String TAG = Config.PRINT_HTTP_TAG;
 
     @Override
     public Response intercept(Chain chain) throws IOException {
@@ -34,7 +34,7 @@ public class LogInterceptor implements Interceptor {
         if (Config.IS_PRINT_HTTP_RESPONSE_HEADER){
             Headers headers = response.headers();
 
-            Log.d(TAG, String.format("Received response header %n%s",
+            Log.d(TAG, "[HTTP]"+String.format("Received response header %n%s",
                     headers));
         }
 

@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 
 import com.eggsy.okhttp.interceptor.LogInterceptor;
+import com.eggsy.okhttp.interceptor.ResponseHeaderInterceptor;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -301,6 +302,7 @@ public class MainActivity extends AppCompatActivity {
     @OnClick(R.id.btn_log_headers)
     public void clickLogHeaders(View v){
         OkHttpClient logHttpClient = new OkHttpClient.Builder().addInterceptor(new LogInterceptor())
+                .addNetworkInterceptor(new ResponseHeaderInterceptor())
                 .build();
 
         Request request = new Request.Builder().url(appendUrlParam("getRedirect")).build();
