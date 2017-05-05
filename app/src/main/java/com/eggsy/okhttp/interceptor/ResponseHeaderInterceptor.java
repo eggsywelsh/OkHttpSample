@@ -13,6 +13,8 @@ import okhttp3.Response;
 
 /**
  * Created by eggsy on 17-5-3.
+ *
+ * print response header interceptor
  */
 
 public class ResponseHeaderInterceptor implements Interceptor {
