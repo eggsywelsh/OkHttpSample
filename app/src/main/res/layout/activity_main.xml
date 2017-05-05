@@ -1,62 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context="com.eggsy.okhttp.MainActivity">
 
-    <Button
-        android:id="@+id/btn_get_url"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Get Url" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/btn_post_content"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Post Content" />
+        <Button
+            android:id="@+id/btn_get_url"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Get Url" />
 
-    <Button
-        android:id="@+id/btn_post_form"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Post form" />
+        <Button
+            android:id="@+id/btn_post_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Post Content" />
 
-    <Button
-        android:id="@+id/btn_post_with_header"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Post with header" />
+        <Button
+            android:id="@+id/btn_post_form"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Post form" />
 
-    <Button
-        android:id="@+id/btn_post_file"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Post file" />
+        <Button
+            android:id="@+id/btn_post_with_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Post with header" />
 
-    <Button
-        android:id="@+id/btn_post_cookie"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Post cookie" />
+        <Button
+            android:id="@+id/btn_post_file"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Post file" />
 
-    <Button
-        android:id="@+id/btn_post_log"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Post with log" />
+        <Button
+            android:id="@+id/btn_post_cookie"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Post cookie" />
 
-    <Button
-        android:id="@+id/btn_log_headers"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="log response headers" />
+        <Button
+            android:id="@+id/btn_post_log"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Post with log" />
 
-    <Button
-        android:id="@+id/btn_gzip"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="post with gzip header" />
-</LinearLayout>
+        <Button
+            android:id="@+id/btn_log_headers"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="log response headers" />
+
+        <Button
+            android:id="@+id/btn_gzip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="post with gzip header" />
+
+        <Button
+            android:id="@+id/btn_get_common_params"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Get with common params" />
+
+        <Button
+            android:id="@+id/btn_post_common_params_with_form"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Post form with common params" />
+
+        <Button
+            android:id="@+id/btn_post_common_params_with_file"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Post file with common params" />
+
+    </LinearLayout>
+</ScrollView>
