@@ -13,6 +13,8 @@ import okio.Okio;
 
 /**
  * Created by eggsy on 17-5-3.
+ *
+ * gzip request interceptor
  */
 
 public class GzipRequestInterceptor implements Interceptor {
