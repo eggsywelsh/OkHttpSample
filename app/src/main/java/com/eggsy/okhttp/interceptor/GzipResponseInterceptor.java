@@ -13,6 +13,8 @@ import okio.Okio;
 
 /**
  * Created by eggsy on 17-5-3.
+ *
+ * gzip decompressed interceptor
  */
 
 public class GzipResponseInterceptor implements Interceptor {
@@ -33,36 +35,16 @@ public class GzipResponseInterceptor implements Interceptor {
 
             @Override
             public long contentLength() {
-                return -1; // We don't know the compressed length in advance!
+                return body.contentLength(); // We don't know the compressed length in advance!
             }
 
             @Override
             public BufferedSource source() {
 
                 BufferedSource bufferedSource = Okio.buffer(new GzipSource(Okio.source(body.byteStream())));
-//                ByteArrayOutputStream baos = new ByteArrayOutputStream();
-//                GZIPOutputStream gos = null;
-//                try {
-//                    gos = new GZIPOutputStream(baos);
-//                    InputStream is = body.byteStream();
-//                    int index = -1;
-//                    byte[] b = new byte[1024];
-//                    while (is != null && (index = is.read(b)) != -1) {
-//                        gos.write(b, 0, index);
-//                    }
-//                } catch (IOException e) {
-//                    e.printStackTrace();
-//                }
                 return bufferedSource;
             }
 
-
-//            @Override
-//            public void writeTo(BufferedSink sink) throws IOException {
-//                BufferedSink gzipSink = Okio.buffer(new GzipSink(sink));
-//                body.writeTo(gzipSink);
-//                gzipSink.close();
-//            }
         };
     }
 
